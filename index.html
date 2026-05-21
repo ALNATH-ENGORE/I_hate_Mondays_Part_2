@@ -71,8 +71,13 @@
       height: 29.5px;
       filter: brightness(0) invert(1);
       cursor: pointer;
+      transition: transform 0.2s ease;
     }
 
+    .back-icon:active
+    {
+      transform: scale(0.9);
+    }
 
     .avatar {
       width: 55px;
@@ -543,7 +548,7 @@
   <div class="page">
     <div class="topbar">
       <div class="back-arrow">
-        <img src="media/back_arrow.png" class="back-icon">
+        <img src="media/back_arrow.png" class="back-icon" onclick="goBack()">
       </div>
       <div class="avatar" onclick="openDP()">
         <img src="media/Dp.jpeg" alt="Dp">
@@ -1295,6 +1300,17 @@
 </div>
 
 <script>
+  function goBack()
+  {
+    if (window.history.length>1)
+  {
+    window.history.back();
+  }
+    else
+  {
+    window.close();
+  }
+  }
   function openDP()
   {
     document.getElementById("dpOverlay").classList.add("active");
